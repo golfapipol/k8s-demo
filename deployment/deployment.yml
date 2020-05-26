@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-web-deployment
+  labels:
+    app: sample-web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sample-web
+  template:
+    metadata:
+      labels:
+        app: sample-web
+    spec:
+      containers:
+      - name: sample-web
+        image: ec2-18-138-18-14.ap-southeast-1.compute.amazonaws.com:5000/sample-web:1.0
+        ports:
+        - containerPort: 80
