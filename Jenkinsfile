@@ -26,7 +26,7 @@ pipeline {
                                 verbose: true,
                                 transfers: [
                                     sshTransfer(
-                                        sourceFiles: "./deployment",
+                                        sourceFiles: "./deployment/*",
                                         remoteDirectory: "/home/ubuntu/deployment",
                                         execCommand: "./deploy.sh"
                                     )
