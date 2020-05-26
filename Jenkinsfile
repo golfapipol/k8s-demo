@@ -16,23 +16,25 @@ pipeline {
         }
 
         stage('Deploy') {
-            script {
-                sshPublisher(
-                    continueOnError: false, failOnError: true,
-                    publishers: [
-                        sshPublisherDesc(
-                            configName: "minikube",
-                            verbose: true,
-                            transfers: [
-                                sshTransfer(
-                                    sourceFiles: "./deployment",
-                                    remoteDirectory: "./deployment",
-                                    execCommand: "./deploy.sh"
-                                )
-                            ]
-                        )
-                    ]
-                )
+            steps {
+                script {
+                    sshPublisher(
+                        continueOnError: false, failOnError: true,
+                        publishers: [
+                            sshPublisherDesc(
+                                configName: "minikube",
+                                verbose: true,
+                                transfers: [
+                                    sshTransfer(
+                                        sourceFiles: "./deployment",
+                                        remoteDirectory: "./deployment",
+                                        execCommand: "./deploy.sh"
+                                    )
+                                ]
+                            )
+                        ]
+                    )
+                }   
             }
         }
     }
