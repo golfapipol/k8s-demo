@@ -10,8 +10,8 @@ pipeline {
         
         stage('Push Artifact') {
             steps {
-                sh 'docker tag sample-web:1.0.0 ec2-18-138-18-14.ap-southeast-1.compute.amazonaws.com:5000/sample-web:1.0'
-                sh 'docker push ec2-18-138-18-14.ap-southeast-1.compute.amazonaws.com:5000/sample-web:1.0'
+                sh 'docker tag sample-web:1.0.0 712380418412.dkr.ecr.ap-southeast-1.amazonaws.com/sample-web:1.0'
+                sh 'docker push 712380418412.dkr.ecr.ap-southeast-1.amazonaws.com/sample-web:1.0'
             }
         }
 

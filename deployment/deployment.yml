@@ -15,7 +15,7 @@ spec:
         app: sample-web
     spec:
       imagePullSecrets:
-      - name: regcred
+      - name: aws
       containers:
       - name: sample-web
         image: ec2-18-138-18-14.ap-southeast-1.compute.amazonaws.com:5000/sample-web:1.0
