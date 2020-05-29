@@ -1,0 +1,6 @@
+log:
+  level: error
+mongodb:
+  endpoint: mongodb://mongodb:27017
+redis:
+  endpoint: redis://redis:6379

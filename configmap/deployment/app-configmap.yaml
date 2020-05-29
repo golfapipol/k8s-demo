@@ -1,0 +1,13 @@
+apiVersion: v1
+data:
+  default.yml: |
+    log:
+      level: debug
+    mongodb:
+      endpoint: mongodb://mongodb:27017
+    redis:
+      endpoint: redis://redis:6379
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: app-configmap

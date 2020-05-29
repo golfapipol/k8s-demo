@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: configmap-app-deployment
+  labels:
+    app: configmap-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: configmap-app
+  template:
+    metadata:
+      labels:
+        app: configmap-app
+    spec:
+      imagePullSecrets:
+      - name: aws
+      containers:
+      - name: configmap-app
+        image: configmap-app:1.0
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 80
+        envFrom:
+        - configMapRef:
+            name: env-configmap
+        volumeMounts:
+          - name: app-config
+            mountPath: /configs/
+      volumes:
+        - name: app-config
+          configMap:
+            name: app-configmap
+            items:
+            - key: default.yml
+              path: default.yml
